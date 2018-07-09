@@ -1,0 +1,16 @@
+---
+# tasks file for global.redis
+
+# gather os platform and assign to platform
+
+- name: For Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_os_platform|lower == 'ubuntu'
+
+- name: For Debian
+  import_tasks: debian.yml
+  when: ansible_os_platform|lower == 'debian'
+
+- name: For Red hat
+  import_tasks: redhat.yml
+  when: ansible_os_platform|lower == 'redhat'
